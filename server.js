@@ -4,25 +4,26 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-var articles{
-     "article-one" ={
+
+var articles={
+     "article-one" :{
         title: 'Article one | Bhakya ',
         heading: 'Article one',
         content:`This is just awesome learning. Not boring . keeps me going... good to start this kind of educating system. This will surely help many aspiring, poor, talented, unable to study in classrooms students to learn with ease . I really appreciate your efforts . Thank you IIT-M and Hasura . fbuiik;lgfsrsarfglkkfgset `
-    };
+    },
     
-     "article-two" ={
+     "article-two" :{
         title: 'Article two | Bhakya ',
         heading: 'Article two',
         content:`fjtbuujjk 678989900bm fssdaqwweruoasdfghjkl qwertyuio qwsdfghjkl asdfghjk`
-    };
+    },
     
-     "article-three" ={
+     "article-three" :{
         title: 'Article three | Bhakya ',
         heading: 'Article three',
         content:`3rd page iihgffddasdfghjkl qwertyuio xcvbnm,kkj.`
-    };
-}
+    },
+};
 
 function htmlTemplate(data){
     var title= data.title; 
