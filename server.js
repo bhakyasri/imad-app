@@ -36,7 +36,7 @@ function htmlTemplate(data){
         </body>
     </html>`
     ;
-    return htmlTemplate;
+    return template;
 }
 
 app.get('/', function (req, res) {
