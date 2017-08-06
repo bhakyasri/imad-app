@@ -4,12 +4,25 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-var articleOne ={
-    title: 'Article one | Bhakya ',
-    heading: 'Article one',
-    content:`This is just awesome learning. Not boring . keeps me going... good to start this kind of educating system. This will surely help many aspiring, poor, talented, unable to study in classrooms students to learn with ease . I really appreciate your efforts . Thank you IIT-M and Hasura .`
-};
+var articles{
+     "article-one" ={
+        title: 'Article one | Bhakya ',
+        heading: 'Article one',
+        content:`This is just awesome learning. Not boring . keeps me going... good to start this kind of educating system. This will surely help many aspiring, poor, talented, unable to study in classrooms students to learn with ease . I really appreciate your efforts . Thank you IIT-M and Hasura . fbuiik;lgfsrsarfglkkfgset `
+    };
+    
+     "article-two" ={
+        title: 'Article two | Bhakya ',
+        heading: 'Article two',
+        content:`fjtbuujjk 678989900bm fssdaqwweruoasdfghjkl qwertyuio qwsdfghjkl asdfghjk`
+    };
+    
+     "article-three" ={
+        title: 'Article three | Bhakya ',
+        heading: 'Article three',
+        content:`3rd page iihgffddasdfghjkl qwertyuio xcvbnm,kkj.`
+    };
+}
 
 function htmlTemplate(data){
     var title= data.title; 
@@ -43,8 +56,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one.html', function (req, res) {
-  res.send(htmlTemplate(articleOne));
+app.get('/articleName.html', function (req, res) {
+    var articleName=req.params.articleName;
+  res.send(htmlTemplate(articles[articleName]));
 });
 
 app.get('/article-two.html', function (req, res) {
