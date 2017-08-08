@@ -22,7 +22,7 @@ button.onclick = function(){
                console.log('inside 2nd if' +request.status);
                var counter = request.responseText;
                var span = document.getElementById("count");
-               span.InnerHTML = counter.toString();
+               span.innerHTML = counter.toString();
            }
        }
    };
