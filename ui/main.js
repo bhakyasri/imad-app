@@ -8,6 +8,7 @@ function moveRight(){
 img.onclick = function (){
    var interval = setInterval(moveRight,50);
 };
+var button = document.getElementById("counter");
 button.onclick = function(){
     //create a request object
    var request = new XMLHttpRequest();
@@ -20,7 +21,7 @@ button.onclick = function(){
                span.InnerHTML = counter.toString();
            }
        }
-   }
+   };
    request.open("GET","http://bhakya3.imad.hasura-app.io/counter",true);
    request.send(null);
 };
