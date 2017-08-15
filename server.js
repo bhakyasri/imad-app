@@ -53,6 +53,15 @@ function htmlTemplate(data){
     return template;
 }
 
+
+var config = {
+    user:'bhakya3',
+    database:'bhakya3',
+    host:'http://db.imad.hasura-app.io',
+    port:5432,
+    password:process.env.DB_PASSWORD//db-bhakya3-43518
+};
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
@@ -70,7 +79,22 @@ app.get('/submit-name', function (req, res) {
   res.send(JSON.stringify(names));
 });
 
+var pool= new Pool(config);
 
+app.get('/test-db',function (req,res){
+//make a select request
+//return the response results
+pool.query('SELECT * FROM test',function(req,res){
+   if(err){
+       res.status(500).send(err.tostring());
+   } else{
+       res.send(JSON.stringify(result.rows));
+   }
+    
+});
+
+
+});
 app.get('/:articleName.html', function (req, res) {
     var articleName=req.params.articleName;
   res.send(htmlTemplate(articles[articleName]));
