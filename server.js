@@ -83,19 +83,22 @@ app.get('/submit-name', function (req, res) {
 var pool= new Pool(config);
 
 app.get('/test-db',function (req,res){
+    console.log('inside fun'+res);
 //make a select request
 //return the response results
 pool.query('SELECT * FROM test',function(err,result){
+    console.log('connected db');
    if(err){
+       console.log('err');
        res.status(500).send(err.toString());
    } else{
+       console.log('result'+result);
        res.send(JSON.stringify(result));
    }
     
 });
-
-
 });
+
 app.get('/:articleName.html', function (req, res) {
     var articleName=req.params.articleName;
   res.send(htmlTemplate(articles[articleName]));
