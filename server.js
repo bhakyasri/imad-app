@@ -59,7 +59,7 @@ var config = {
     user:'bhakya3',
     database:'bhakya3',
     host:'http://db.imad.hasura-app.io',
-    port:5432,
+    port:'5432',
     password:process.env.DB_PASSWORD //'db-bhakya3-43518'
 };
 
