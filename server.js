@@ -96,7 +96,20 @@ pool.query('SELECT * FROM test',function(err,result){
 
 app.get('/:articleName.html', function (req, res) {
     var articleName=req.params.articleName;
-  res.send(htmlTemplate(articles[articleName]));
+    pool.query("SELECT * FROM article where TITLE = '" +articleName + "'" , function(err,result){
+       if(err){
+           res.status(500).send(err.toString());
+           }else{
+               if (result.rows.length === 0){
+                   res.status(404).send('Ariticle not found');
+               }else{
+                   var articleData = result.rows[0];
+                   res.send(htmlTemplate(articleData));
+               }
+           } 
+    });
+    
+  //res.send(htmlTemplate(articles[articleName]));
 });
 
 app.get('/ui/style.css', function (req, res) {
