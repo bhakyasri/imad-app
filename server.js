@@ -60,7 +60,7 @@ var config = {
     database:'bhakya3',
     host:'db.imad.hasura-app.io',
     port:'5432',
-    password:process.env.DB_PASSWORD //'db-bhakya3-43518'
+    password:process.env.DB_PASSWORD
 };
 
 app.get('/', function (req, res) {
@@ -83,19 +83,14 @@ app.get('/submit-name', function (req, res) {
 var pool= new Pool(config);
 
 app.get('/test-db',function (req,res){
-    console.log('inside fun'+res);
 //make a select request
 //return the response results
 pool.query('SELECT * FROM test',function(err,result){
-    console.log('connected db');
    if(err){
-       console.log('err');
        res.status(500).send(err.toString());
    } else{
-       console.log('result'+result);
        res.send(JSON.stringify(result));
    }
-    
 });
 });
 
