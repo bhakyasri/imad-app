@@ -6,7 +6,7 @@ var Pool = require('pg').Pool;
 var app = express();
 app.use(morgan('combined'));
 
-var articles={
+/*var articles={
      "article-one" :{
         title: 'Article one | Bhakya ',
         heading: 'Article one',
@@ -25,7 +25,7 @@ var articles={
         content:`3rd page iihgffddasdfghjkl qwertyuio xcvbnm,kkj.`
     },
 };
-
+*/
 function htmlTemplate(data){
     var title= data.title; 
     var heading= data.heading;
